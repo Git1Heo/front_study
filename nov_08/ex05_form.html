@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form태그</title>
+</head>
+<body>
+    <form action="test " method="post">
+        <!-- temp?aa=안녕 
+            test?bbb=ㅎㅎㅎ -> bbb에 ㅎㅎㅎ 이라는 값이 담겨 test로 요청 보냄
+            test?bbb=자바&ccc=디비-->
+        <!-- name 속성값 : 서버로 요청할 때 데이터를 담는 파라미터 이름-->
+        입력 1 : <input type="text" name ="bbb"> <br>
+        입력 2 : <input type="text" name ="ccc"> <br>
+        <input type="submit" value="전송">
+
+    </form>
+</body>
+</html>
