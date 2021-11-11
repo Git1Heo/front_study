@@ -7,13 +7,57 @@
     <title>form태그</title>
 </head>
 <body>
-    <form action="test " method="post">
+    <form action="test " method="get">
         <!-- temp?aa=안녕 
             test?bbb=ㅎㅎㅎ -> bbb에 ㅎㅎㅎ 이라는 값이 담겨 test로 요청 보냄
             test?bbb=자바&ccc=디비-->
         <!-- name 속성값 : 서버로 요청할 때 데이터를 담는 파라미터 이름-->
         입력 1 : <input type="text" name ="bbb"> <br>
         입력 2 : <input type="text" name ="ccc"> <br>
+
+        <!-- select 
+        test?bbb=자바&ccc=디비&nation=미국-->
+        국가 : <select name="nation">
+            <option value ="korea">대한민국</option>
+            <option vlaue="usa ">미국</option>
+            <option value="china">중국</optio>
+            <option value="japan">일본</option>
+        </select> <br>
+
+        이메일 주소 : <input type="text" name ="email">
+
+        <select name="@.com">
+            <option value="네이버">naver.com</option>
+            <option value="구글">gmail.com</option>
+        </select><br>
+
+        <!-- 장문의 글을 쓸 필요가 있을 때-->
+        <textarea name="contents" id="" cols="30" rows="10"></textarea><br>
+        
+        <!--비밀번호 get으로 쓰면 페이지에 나타남 -->
+        <label for="pw">비밀번호 :</label> <input type="password" id="pw" name="pw"> <br>
+
+        <!-- 라디오 버튼(여러개 중에 하나) -->
+        가입유형 : 
+        <input type="radio" id ="p" name="join" value="personal">
+           <label for="p">개인</label>
+        <input type="radio"name="join" id="c" value="commercial">
+            <label for="c">사업자</label>
+        <input type="radio"name="join"id="n" value="no"> 
+            <label for="n">해당없음</label>
+        <br>
+
+        <!--checkbox (여러개 선택가능)-->
+        <input type="checkbox" name="lang" value="java">자바
+        <input type="checkbox" name="lang" value="mysql">mysql
+        <input type="checkbox" name="lang" value="html">html
+        <input type="checkbox" name="lang" value="python">python
+        <br>  
+        
+        <!--생일-->
+        <input type="date" name="birth">
+        <br>
+
         <input type="submit" value="전송">
 
     </form>
