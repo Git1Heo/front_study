@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*  1. 입력한 id값을 가져오기
+            2. 입력 값 검증(있는지, 글자수)
+            3. 검증결과에 따른 화면출력
+        */
+       function idCheck(){
+            const idValue=document.getElementById("id").value;
+            console.log(idValue);
+            console.log(idValue.length)
+            const idLength=idValue.length;
+            const result=document.getElementById("idCheckResult")
+
+            if(idLength==0){
+                console.log("필수항목입니다.")
+                result.innerHTML="필수항목입니다.";
+                result.style.color="red";
+            }
+            else if(idLength<5 || idLength>20){
+                console.log("5~20자 이내로 작성해주세요")
+                result.innerHTML="5~20자 이내로 작성해주세요";
+                result.style.color="red";
+            }
+            else{
+                console.log("멋진아이디");
+                result.innerHTML="멋진아이디";
+                result.style.color =  "greenyellow";
+            }
+       
+        }
+    </script>
+</head>
+<body>
+    아이디 : <input type ="text" id="id" onblur="idCheck()" maxlength="20"><br>
+    <span id="idCheckResult"></span>
+</body>
+</html>
