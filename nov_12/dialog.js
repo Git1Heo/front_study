@@ -22,5 +22,7 @@ eleprompt.addEventListener("click",promptFunction);
 
 function promptFunction(){
     console.log("prompt 호출")
+    const result = prompt("프롬프트 함수입니다.")
+    console.log(result);
 }
 

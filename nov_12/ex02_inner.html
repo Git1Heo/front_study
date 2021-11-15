@@ -16,12 +16,13 @@
                 // ele1.innerHTML=num1+num2;
             //innerHTML 보안성 취약해 textContent사용
                 // ele1.textContent=num1+num2;
+
             let num3=num1+num2;
             ele1.innerHTML='<h2>' + num3+'</h2>';
 
             let ulPrint = "<ul>";
             for (let i=1;i<=3;i++){
-                ulPrint +="<li>" +i+ "<li>";
+                ulPrint +="<li>"+i+"</li>";
             }
             ulPrint +="</ul>";
 
@@ -35,12 +36,8 @@
 <body>
     <p id="id1" onclick="fun1()">html 재미없다</p>
     <!-- 실행결과가 콘솔이 아니라 화면에 출력 -->
-    <p id="id2">
+    <p id="id2"></p>
 
-    </p>
-    
-    <p id="id3">
-
-    </p>
+    <p id="id3"></p>
 </body>
 </html>
