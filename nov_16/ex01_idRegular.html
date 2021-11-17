@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            width:300px;
+            height: 15px;
+        }
+        span{
+            display :block;
+        }
+    </style>
+
+    <script>
+        function idCheck(){   
+            // 영문소문자, 숫자, 6~10자리 정규식 
+            // 소문자 숫자가 반드시 1개 이상 사용되어야 함. 
+            const exp = /^(?=.*[a-z])(?=.*\d)[a-z\d]{6,10}$/;
+            // /d는 숫자를 의미
+            
+            // 영문대소문자, 숫자, 6~10자리 정규식 
+            // 소문자, 대문자, 숫자가 반드시 1개이상 사용되어야 함. 
+            const exp1 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,10}$/;
+            
+            // 네이버 아이디 정규식 
+            // 영문소문자, 숫자, -_ 특수문자, 5~20자리
+            // 소문자, 숫자, 특수문자(-_)가 반드시 1개 이상 사용되어야 함. 
+            const exp2 = /^(?=.*[a-z])(?=.*\d)(?=.*[-_])[a-z\d-_]{5,20}$/; 
+
+            const id=document.getElementById('id').value;
+            const ch=document.getElementById('idoutput');
+
+            if(id.length==0){
+                ch.innerHTML="필수 입력값입니다.";
+                ch.style.color="red";
+            }
+            else if(id.match(exp)){
+                console.log("유효한 형식입니다.")
+                ch.innerHTML="유효한 형식입니다.";
+                ch.style.color="green"
+            }
+            else{
+                console.log("유효하지 않은 형식입니다.")
+                ch.innerHTML="유효하지 않은 형식입니다.";
+                ch.style.color="red"
+            }
+        }
+
+        function pw1check(){
+            pw1ch=document.getElementById("pw1").value;
+            pw1out=document.getElementById("pw1output");
+            pwlength=pw1ch.length;
+
+            const exp5 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*-_])[a-zA-Z\d!@#$%^&*-_]{8,16}$/; 
+            //const exp = /^(?=.*[a-z])(?=.*\d)(?=.*[-_])[a-z\d-_]{5,20}$/; 
+            const exp2 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-_~!@#$%^&*()])[a-zA-Z\d-_~!@#$%^&*()]{8,16}$/;
+
+            if(pwlength==0){
+                pw1out.innerHTML="필수 입력값입니다.";
+                pw1out.style.color="red";
+            }
+            else if (pw1ch.match(exp2)){
+                pw1out.innerHTML="유효한 형식입니다.";
+                pw1out.style.color="green"
+            }
+            else{
+                pw1out.innerHTML="8~16자 영문 대 소문자, 숫자, 특수문자로 입력하세요";
+                pw1out.style.color="red";
+            }
+
+        }
+
+        function pw2check(){
+            pw1ch=document.getElementById("pw1").value;
+            pw2ch=document.getElementById("pw2").value;
+            pw2out=document.getElementById("pw2output");            
+
+            if(pw1ch==pw2ch){
+                pw2out.innerHTML="비밀번호가 일치합니다.";
+                pw2out.style.color="green";
+            }
+
+            else{
+                pw2out.innerHTML="비밀번호가 일치하지않습니다.";
+                pw2out.style.color="red";
+            }
+
+
+        }
+
+    </script>
+</head>
+<body>
+    아이디 :<input type ="text" id="id" onblur = "idCheck()" placeholder="영문소문자, 숫자 조합하여 6~10글자 이내">
+    <!-- 정규식(regular expression) -->
+    
+    <span id="idoutput"></span>
+    비밀번호 : <input type="text" id="pw1" onblur="pw1check()" placeholder="8~16자 영문 대 소문자, 숫자, 특수문자">
+    
+    <span id="pw1output"></span>
+    비밀번호 : <input type="text" id="pw2" onkeyup="pw2check()" placeholder="비밀번호를 다시 입력하세요">
+    
+    <span id="pw2output"></span>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function pwCheck(){
+            pw=document.getElementById("pw1").value;
+            ch=document.getElementById("check");
+            pwlength=pw.length;
+            //console.log(pwlength)
+            if(pwlength==0){
+                ch.innerHTML="필수항목입니다."
+                ch.style.color="red";
+            }
+            else if (pwlength<8 || pwlength>20){
+                ch.innerHTML="8 ~20 이내로 비밀번호 작성해주세요 ";
+                ch.style.color="red";
+            }
+            else {
+                ch.innerHTML="좋습니다. "
+                ch.style.color="green";
+            }
+        }
+
+        function pwequals(){
+            pw1=document.getElementById("pw1").value;
+            pw2=document.getElementById("pw2").value;
+            ch=document.getElementById("equals");
+
+            if (pw1===pw2){
+                ch.innerHTML="일치합니다. "
+                ch.style.color="green";
+            }
+            else{
+                ch.innerHTML="일치하지 않습니다. "
+                ch.style.color="red";
+            } 
+
+        }
+
+
+    </script>
+
+
+</head>
+<body>
+    비밀번호 : <input type="password" id="pw1" onkeyup="pwCheck()" placeholder="8~20자리 비밀번호">
+    <p id="check"> </p>
+    비밀번호 확인 : <input type="password" id="pw2" onkeyup="pwequals()" placeholder="한번 더 입력">
+    <p id="equals"> </p>
+</body>
+</html>
